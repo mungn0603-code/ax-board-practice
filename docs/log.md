@@ -29,3 +29,7 @@
 | 2026-10-22 | PR #8 리뷰에서 AC-07 결과와 handoff 갱신을 요청하고 같은 PR에 수정 commit(a64013a)을 이었다 | merge(08be748). handoff 브랜치 docs/mungn0603-code-1010-handoff에 handoff.md만 담은 마지막 commit(cbb209b)을 올렸다 |
 | 2026-10-22 | 충돌 실습: main에서 feat/title-a·feat/title-b를 만들고 PR #9(A)를 먼저 merge했다 | PR #10(B)은 App.jsx 59행에서 충돌한다. 로컬 시험 merge로 충돌 표시를 확인했다. 해결은 본인이 웹에서 한다(D6) |
 | 2026-10-22 | practice/에 10/17 실습 A·B·C를 올렸다(PR #11) | 18개 파일 해시가 로컬과 같았다. 저장소 사본에서 A·C를 다시 실행해 같은 결과를 얻었다 |
+| 2026-10-22 | PR #10 충돌을 GitHub 웹 Resolve conflicts로 해결했다 | B(AX 보드 B)를 남기고 merge commit 22f4a0e(부모 2개)를 만들었다. 충돌 표시 0개. 제목 줄 위에 빈 줄 1개가 생겼으나 화면에는 영향이 없다 |
+| 2026-10-22 | 해결된 feat/title-b를 main에 시험 merge했다 | 충돌 없이 합쳐지고 build 성공, 브라우저 검증 21개 통과. Merge pull request 버튼은 아직 누르지 않아 PR #10은 열려 있다 |
+| 2026-10-22 | PR #10 상태를 다시 확인했다 | 12:09에 merge 없이 닫혔다(closed, merged_at 없음). main 제목은 여전히 AX 보드 A이고, 충돌 해결 commit 22f4a0e는 feat/title-b에만 있다. Close pull request를 Merge 대신 누른 것으로 판단한다 |
+| 2026-10-22 | PR #10을 다시 열고 Merge pull request로 머지했다 | merge commit dda2296. main 제목이 AX 보드 B로 바뀌었다. 새 clone에서 build 성공, 브라우저 검증 21개 통과. 전체 commit 30개, 작성자 본인 1명, Co-Authored-By 0건 |
