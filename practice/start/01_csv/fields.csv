@@ -1,0 +1,6 @@
+column,meaning,unit,type,reason
+species,펭귄 종,-,범주,질문의 집계 기준
+island,관측 섬,-,범주,범위 필터
+year,관측 연도,연도,시간,범위 필터
+body_mass_g,체중,g,수치,종별 체중 대조용
+bill_length_mm,부리 길이,mm,수치,A7 변경에서 추가
