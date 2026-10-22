@@ -56,7 +56,9 @@ export default function App() {
   return (
     <main className="board">
       <h1>
+
         AX 보드 B <span className="count">아이디어 {ideas.length}개</span>
+
       </h1>
 
       <form className="card-form" onSubmit={addIdea}>
