@@ -5,17 +5,22 @@
 ## 실행 방법
 
 ```bash
+git clone https://github.com/mungn0603-code/ax-board-practice.git
+cd ax-board-practice
 npm install
 npm run dev -- --port 3099
 ```
+
+필요한 것: Node.js 18 이상. `.env`는 쓰지 않는다. 수업 서버에서는 3099 대신 배정 포트(30NN)를 쓴다.
 
 브라우저에서 `http://localhost:3099` 를 엽니다.
 
 ## 주요 기능
 
-- 제목 · 대상 업무 · AI 아이디어를 입력해 카드 추가
-- 카드 목록 표시와 삭제
-- 새로고침해도 유지 (localStorage)
+- 제목 · 대상 업무 · AI 아이디어 · 태그를 입력해 카드 추가 (빈칸이면 안내 후 추가하지 않음)
+- 태그 필터로 카드 목록 거르기
+- 삭제 전 확인창 (취소하면 그대로 유지)
+- 새로고침해도 유지 (localStorage, `ax-board-ideas` 키)
 
 ## 폴더 구조
 
@@ -24,6 +29,7 @@ index.html      앱이 붙는 HTML
 src/main.jsx    React 시작점
 src/App.jsx     화면과 상태
 src/index.css   스타일
+docs/           PRD·구조도·와이어프레임·작업 로그·결정 기록
 ```
 
 ## 작업 방식
@@ -32,5 +38,5 @@ src/index.css   스타일
 
 ## 남은 할 일
 
-- 카드 태그와 태그 필터
-- 삭제 전 확인창
+- 아이디어 개수 표시
+- 여러 사람이 함께 보는 저장 방식 검토
