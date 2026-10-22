@@ -60,7 +60,7 @@ export default function App() {
       </h1>
 
       <form className="card-form" onSubmit={addIdea}>
-        <input aria-label="제목" placeholder="제목" value={title} onChange={(e) => setTitle(e.target.value)} />
+        <input aria-label="제목" placeholder="예: 설비 점검 기록 요약" value={title} onChange={(e) => setTitle(e.target.value)} />
         <input aria-label="대상 업무" placeholder="대상 업무" value={task} onChange={(e) => setTask(e.target.value)} />
         <textarea aria-label="AI 아이디어" placeholder="AI 활용 아이디어" value={idea} onChange={(e) => setIdea(e.target.value)} />
         <input aria-label="태그" placeholder="태그 (예: 생산, 품질)" value={tag} onChange={(e) => setTag(e.target.value)} />
