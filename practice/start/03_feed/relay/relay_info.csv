@@ -1,0 +1,2 @@
+source_url,status,bytes,sha256,collected_at_utc,feed_updated,entry_count,published_present,source_kind
+https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.atom,200,34877,f7807e18446facb3cbb0ec02e36c85d87dc4e5de873ff172c07f353ee642ee8e,2026-10-22T11:10:56Z,2026-10-22T11:10:09Z,44,false,actual-browser
