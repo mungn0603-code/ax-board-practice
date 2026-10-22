@@ -33,3 +33,4 @@
 | 2026-10-22 | 해결된 feat/title-b를 main에 시험 merge했다 | 충돌 없이 합쳐지고 build 성공, 브라우저 검증 21개 통과. Merge pull request 버튼은 아직 누르지 않아 PR #10은 열려 있다 |
 | 2026-10-22 | PR #10 상태를 다시 확인했다 | 12:09에 merge 없이 닫혔다(closed, merged_at 없음). main 제목은 여전히 AX 보드 A이고, 충돌 해결 commit 22f4a0e는 feat/title-b에만 있다. Close pull request를 Merge 대신 누른 것으로 판단한다 |
 | 2026-10-22 | PR #10을 다시 열고 Merge pull request로 머지했다 | merge commit dda2296. main 제목이 AX 보드 B로 바뀌었다. 새 clone에서 build 성공, 브라우저 검증 21개 통과. 전체 commit 30개, 작성자 본인 1명, Co-Authored-By 0건 |
+| 2026-10-22 | 실습 1~3(수업 서버 환경)을 직접 마쳤다 | VS Code로 cheonan SSH 서버에 연결했고 Claude Code·Codex를 연동했다. 서버의 rocket6 폴더에서 팀별 활동(코딩·데이터베이스)을 진행하고 있다 |
