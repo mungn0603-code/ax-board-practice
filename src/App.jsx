@@ -16,11 +16,16 @@ export default function App() {
   const [title, setTitle] = useState('')
   const [task, setTask] = useState('')
   const [idea, setIdea] = useState('')
+  const [tag, setTag] = useState('')
+  const [filter, setFilter] = useState('전체')
   const [message, setMessage] = useState('')
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(ideas))
   }, [ideas])
+
+  const tags = ['전체', ...new Set(ideas.map((item) => item.tag).filter(Boolean))]
+  const visible = filter === '전체' ? ideas : ideas.filter((item) => item.tag === filter)
 
   function addIdea(event) {
     event.preventDefault()
@@ -29,12 +34,13 @@ export default function App() {
       return
     }
     setIdeas((current) => [
-      { id: Date.now(), title: title.trim(), task: task.trim(), idea: idea.trim() },
+      { id: Date.now(), title: title.trim(), task: task.trim(), idea: idea.trim(), tag: tag.trim() },
       ...current,
     ])
     setTitle('')
     setTask('')
     setIdea('')
+    setTag('')
     setMessage('카드를 추가했습니다.')
   }
 
@@ -51,15 +57,27 @@ export default function App() {
         <input aria-label="제목" placeholder="제목" value={title} onChange={(e) => setTitle(e.target.value)} />
         <input aria-label="대상 업무" placeholder="대상 업무" value={task} onChange={(e) => setTask(e.target.value)} />
         <textarea aria-label="AI 아이디어" placeholder="AI 활용 아이디어" value={idea} onChange={(e) => setIdea(e.target.value)} />
+        <input aria-label="태그" placeholder="태그 (예: 생산, 품질)" value={tag} onChange={(e) => setTag(e.target.value)} />
         <button type="submit">카드 추가</button>
       </form>
 
       {message && <p className="message" role="status">{message}</p>}
 
+      <label className="filter">
+        태그 필터{' '}
+        <select aria-label="태그 필터" value={filter} onChange={(e) => setFilter(e.target.value)}>
+          {tags.map((name) => (
+            <option key={name} value={name}>{name}</option>
+          ))}
+        </select>
+      </label>
+
       <ul className="card-list">
-        {ideas.map((item) => (
+        {visible.map((item) => (
           <li key={item.id} className="card">
-            <h2>{item.title}</h2>
+            <h2>
+              {item.title} {item.tag && <span className="tag">#{item.tag}</span>}
+            </h2>
             <p className="task">대상 업무: {item.task}</p>
             <p>{item.idea}</p>
             <button type="button" onClick={() => deleteIdea(item.id)}>삭제</button>
