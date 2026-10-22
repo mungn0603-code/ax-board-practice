@@ -51,7 +51,7 @@ export default function App() {
 
   return (
     <main className="board">
-      <h1>AX 아이디어 보드</h1>
+      <h1>우리 팀 AX 보드</h1>
 
       <form className="card-form" onSubmit={addIdea}>
         <input aria-label="제목" placeholder="제목" value={title} onChange={(e) => setTitle(e.target.value)} />
