@@ -55,7 +55,9 @@ export default function App() {
 
   return (
     <main className="board">
-      <h1>우리 팀 AX 보드</h1>
+      <h1>
+        우리 팀 AX 보드 <span className="count">아이디어 {ideas.length}개</span>
+      </h1>
 
       <form className="card-form" onSubmit={addIdea}>
         <input aria-label="제목" placeholder="제목" value={title} onChange={(e) => setTitle(e.target.value)} />
@@ -75,6 +77,8 @@ export default function App() {
           ))}
         </select>
       </label>
+
+      {ideas.length === 0 && <p className="empty">아직 아이디어가 없어요</p>}
 
       <ul className="card-list">
         {visible.map((item) => (

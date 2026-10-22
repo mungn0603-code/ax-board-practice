@@ -14,3 +14,5 @@ button { font: inherit; padding: 8px 12px; border: 0; border-radius: 6px; backgr
 .task { color: #57606a; margin: 0 0 8px; }
 .filter { display: block; margin: 8px 0; color: #57606a; }
 .tag { font-size: 13px; color: #1f6feb; font-weight: normal; }
+.count { font-size: 14px; color: #57606a; font-weight: normal; margin-left: 8px; }
+.empty { color: #57606a; }
