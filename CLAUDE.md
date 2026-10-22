@@ -5,3 +5,13 @@
 - 빌드 확인: `npm run build`
 - 화면 문구는 한국어
 - 주요 파일: `src/App.jsx`(화면·상태), `src/index.css`(스타일)
+
+## Git 규칙
+
+- main 브랜치에 직접 commit · push 하지 않는다
+- 작업 전 main을 최신으로 받고 새 브랜치에서 시작한다
+- 브랜치 이름: feat/내용, fix/내용, docs/내용
+- 커밋 메시지: "feat: 한국어 설명" 형식
+- commit 작성자는 작성자 본인이며 Co-Authored-By를 넣지 않는다
+- PR 본문에 관련 Issue(Closes #번호)와 확인 방법을 적는다
+- 충돌이 나면 임의로 해결하지 말고 양쪽 내용을 설명한 뒤 멈춘다
