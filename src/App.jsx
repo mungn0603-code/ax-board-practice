@@ -1,0 +1,71 @@
+import { useEffect, useState } from 'react'
+
+const STORAGE_KEY = 'ax-board-ideas'
+
+function loadIdeas() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY)
+    return saved ? JSON.parse(saved) : []
+  } catch {
+    return []
+  }
+}
+
+export default function App() {
+  const [ideas, setIdeas] = useState(loadIdeas)
+  const [title, setTitle] = useState('')
+  const [task, setTask] = useState('')
+  const [idea, setIdea] = useState('')
+  const [message, setMessage] = useState('')
+
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(ideas))
+  }, [ideas])
+
+  function addIdea(event) {
+    event.preventDefault()
+    if (!title.trim() || !task.trim() || !idea.trim()) {
+      setMessage('제목, 대상 업무, AI 아이디어를 모두 입력해 주세요.')
+      return
+    }
+    setIdeas((current) => [
+      { id: Date.now(), title: title.trim(), task: task.trim(), idea: idea.trim() },
+      ...current,
+    ])
+    setTitle('')
+    setTask('')
+    setIdea('')
+    setMessage('카드를 추가했습니다.')
+  }
+
+  function deleteIdea(id) {
+    setIdeas((current) => current.filter((item) => item.id !== id))
+    setMessage('카드를 삭제했습니다.')
+  }
+
+  return (
+    <main className="board">
+      <h1>AX 아이디어 보드</h1>
+
+      <form className="card-form" onSubmit={addIdea}>
+        <input aria-label="제목" placeholder="제목" value={title} onChange={(e) => setTitle(e.target.value)} />
+        <input aria-label="대상 업무" placeholder="대상 업무" value={task} onChange={(e) => setTask(e.target.value)} />
+        <textarea aria-label="AI 아이디어" placeholder="AI 활용 아이디어" value={idea} onChange={(e) => setIdea(e.target.value)} />
+        <button type="submit">카드 추가</button>
+      </form>
+
+      {message && <p className="message" role="status">{message}</p>}
+
+      <ul className="card-list">
+        {ideas.map((item) => (
+          <li key={item.id} className="card">
+            <h2>{item.title}</h2>
+            <p className="task">대상 업무: {item.task}</p>
+            <p>{item.idea}</p>
+            <button type="button" onClick={() => deleteIdea(item.id)}>삭제</button>
+          </li>
+        ))}
+      </ul>
+    </main>
+  )
+}
