@@ -45,6 +45,10 @@ export default function App() {
   }
 
   function deleteIdea(id) {
+    if (!window.confirm('이 카드를 삭제할까요?')) {
+      setMessage('삭제를 취소했습니다.')
+      return
+    }
     setIdeas((current) => current.filter((item) => item.id !== id))
     setMessage('카드를 삭제했습니다.')
   }
