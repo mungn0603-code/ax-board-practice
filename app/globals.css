@@ -1,0 +1,39 @@
+:root {
+  --background: #f7f7f5;
+  --surface: #ffffff;
+  --foreground: #1a1a1a;
+  --muted: #6b6b6b;
+  --border: #e3e3df;
+  --accent: #2f5bd3;
+  --accent-text: #ffffff;
+  --error: #c0392b;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #121212;
+    --surface: #1c1c1c;
+    --foreground: #ededed;
+    --muted: #9a9a9a;
+    --border: #2e2e2e;
+    --accent: #6f8ff0;
+    --accent-text: #0b0b0b;
+    --error: #ff7b6b;
+  }
+  html {
+    color-scheme: dark;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
