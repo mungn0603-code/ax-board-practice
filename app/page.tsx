@@ -27,7 +27,14 @@ export default function Home() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text }),
       });
-      const data = await res.json();
+      // 서버가 빈 응답을 보내도 res.json()에서 터지지 않게 텍스트로 먼저 받는다.
+      const raw = await res.text();
+      let data;
+      try {
+        data = JSON.parse(raw);
+      } catch {
+        throw new Error(`서버 응답을 읽지 못했습니다. (${res.status}) 다시 시도해 주세요.`);
+      }
       if (!res.ok) throw new Error(data.error ?? "다듬기에 실패했습니다.");
       setResult(data);
     } catch (err) {
